@@ -16,7 +16,7 @@ def _get_group_info(redis_client, group_id):
     group_name = redis_client.get('fbgroup:%s:name' % group_id).decode('utf-8')
     group_picture = redis_client.get(
         'fbgroup:%s:picture' % group_id).decode('utf-8')
-    group_picture = request.url_root[:-1] + \
+    group_picture = 'http://widgets.garage22.net' + \
         url_for('facebook_group_widget.static',
                 filename='groups/%s' % group_picture)
     group_url = 'http://www.facebook.com/groups/%s/' % group_id
