@@ -41,12 +41,12 @@ function main() {
 	var css_link = $("<link>", { 
             rel: "stylesheet", 
             type: "text/css", 
-            href: "http://127.0.0.1:5000/fbgroup/static/widget.css" 
+            href: "http://widgets.garage22.net/fbgroup/static/widget.css" 
         });
         css_link.appendTo('head');
-	$('#fb-groups').html("<div class=\"fb-group-loading\"><img alt=\"loading\" src=\"http://127.0.0.1:5000/fbgroup/static/loading.gif\" style=\"display: block; margin: auto; padding: 10px 0;\"/></div><div class=\"fb-group-ready\" style=\"display: none\"></div>");
+	$('#fb-groups').html("<div class=\"fb-group-loading\"><img alt=\"loading\" src=\"http://widgets.garage22.net/fbgroup/static/loading.gif\" style=\"display: block; margin: auto; padding: 10px 0;\"/></div><div class=\"fb-group-ready\" style=\"display: none\"></div>");
 
-	var widget_url = "http://127.0.0.1:5000/fbgroup/" + group_id + "?callback=?"
+	var widget_url = "http://widgets.garage22.net/fbgroup/" + group_id + "?callback=?"
 	$.getJSON(widget_url, function(data) {
 	    $('.fb-group-ready').html(data.html);
 	    $(window).load(function () {
