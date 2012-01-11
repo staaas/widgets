@@ -1,0 +1,24 @@
+<div class="fb-group">
+  <div class="fb-group-inner">
+      <div class="fb-group-top fb-group-clearfix">
+	<a target="_blank" href="{{ group.url }}">
+	  <img class="fb-group-profileimage" alt="{{ group.name }}" src="{{ group.picture }}">
+	</a>
+	<a target="_blank" href="{{ group.url }}">
+	  <span class="fb-group-name">{{ group.name }}</span>
+	  {{ gettext('on Facebook') }}
+	</a>
+	<br /><span>{{ ngettext('%(num)d member', '%(num)d members', group.members_count) }}</span>
+      </div>
+      <div class="fb-group-connections">
+	<div class="fb-group-clearfix">
+	  {% for member in members %}
+	  <a class="fb-group-connections-user" href="{{ member.url }}" target="_blank" >
+	    <img class="img" alt="" src="{{ member.picture }}">
+	    <div class="fb-group-name">{{ member.name }}</div>
+	  </a>
+	  {% endfor %}
+	</div>
+      </div>
+  </div>
+</div>

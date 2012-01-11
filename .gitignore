@@ -1,0 +1,7 @@
+*.pyc
+*#
+*~
+.hg
+fabfile.py
+src/settings_*.cfg
+src/fbgroup/static/groups

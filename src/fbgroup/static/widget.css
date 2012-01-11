@@ -1,0 +1,82 @@
+.fb-group {
+    box-shadow: 0 4px 10px #CCCCCC;
+    border-color: #FFFFFF;
+    width: 298px;
+    margin-bottom: 18px;
+
+    color: #333333;
+    direction: ltr;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    line-height: 1.28;
+    text-align: left;
+}
+
+.fb-group-inner {
+    padding: 5px;
+}
+
+.fb-group-top {
+    padding: 5px 10px 8px 5px;
+}
+
+.fb-group-clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.fb-group a, .fb-group a:visited {
+    color: #3B5998;
+    cursor: pointer;
+    text-decoration: none;
+}
+.fb-group a:hover {
+    text-decoration: underline;
+}
+
+.fb-group-top .fb-group-profileimage {
+    float: left;
+    height: 40px;
+    margin: 0 0 4px;
+    padding: 0 10px 0 0;
+    width: 40px;
+}
+
+.fb-group img {
+    border: 0 none;
+}
+
+.fb-group-top .fb-group-name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.fb-group-connections {
+    border-top: 1px solid #D8DFEA;
+    padding: 15px 0 10px 5px;
+}
+
+.fb-group-connections-user {
+    display: block;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    width: 70px;
+}
+a.fb-group-connections-user:hover {
+    text-decoration: none;
+}
+.fb-group-connections-user .fb-group-name {
+    color: gray;
+    font-size: 9px;
+    overflow: hidden;
+    padding-top: 2px;
+    text-align: center;
+    white-space: nowrap;
+}
