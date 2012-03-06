@@ -9,21 +9,16 @@ facebook_group_widget = Blueprint('facebook_group_widget', __name__,
                                   static_folder='static',
                                   template_folder='templates')
 
-Group = namedtuple('Group', ['name', 'picture', 'url', 'members_count'])
+Group = namedtuple('Group', ['name', 'url', 'members_count'])
 GroupMember = namedtuple('GroupMember', ['id', 'name', 'url', 'picture'])
 
 def _get_group_info(redis_client, group_id):
     group_name = redis_client.get('fbgroup:%s:name' % group_id).decode('utf-8')
-    group_picture = redis_client.get(
-        'fbgroup:%s:picture' % group_id).decode('utf-8')
-    group_picture = 'http://widgets.garage22.net' + \
-        url_for('facebook_group_widget.static',
-                filename='groups/%s' % group_picture)
     group_url = 'http://www.facebook.com/groups/%s/' % group_id
 
     group_members_count = redis_client.scard('fbgroup:%s:members' % group_id)
 
-    return Group(group_name, group_picture, group_url, group_members_count)
+    return Group(group_name, group_url, group_members_count)
 
 def _get_random_group_members(redis_client, group_id, count=4, retries=100):
     members = []

@@ -64,17 +64,6 @@ class Updater(object):
                 members.add((member['id'], member['name']))
             members_url = members_json['paging'].get('next')
 
-        picture_url = self._update_url_with_access_token(
-            self._graph_url_for_object('%s/picture' % self.group_id))
-        with closing(urllib2.urlopen(picture_url)) as resp:
-            picture_data = resp.read()
-            picture_ext = mimetypes.guess_extension(resp.info().gettype())
-
-        picture_fname = os.path.join(GROUPS_PICTURES_DIR,
-                                     '%s%s' % (self.group_id, picture_ext))
-        with open(picture_fname, 'w') as picture_file:
-            picture_file.write(picture_data)
-
         import redis
         r = redis.Redis().pipeline()
         r.multi()
@@ -83,10 +72,6 @@ class Updater(object):
         key_name = 'fbgroup:%s:name' % self.group_id
         r.set(key_name, name)
         r.expire(key_name, timeout)
-
-        key_picture = 'fbgroup:%s:picture' % self.group_id
-        r.set(key_picture, os.path.basename(picture_fname))
-        r.expire(key_picture, timeout)
 
         key_members = 'fbgroup:%s:members' % self.group_id
         r.delete(key_members)
